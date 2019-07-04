@@ -1,0 +1,27 @@
+﻿<Window x:Class="SolucionCafecito.ListaProductosProveedor"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SolucionCafecito"
+        mc:Ignorable="d"
+        Title="ListaProductosProveedor" Height="450" Width="800">
+    <Grid>
+
+        <DataGrid Name="ProductoProveedorGrid" HorizontalAlignment="Left" AutoGenerateColumns="False" Height="185" Margin="35,82,0,0" VerticalAlignment="Top" Width="595">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Nro_Factura}" Header="Número Factura"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Nombre_Producto}" Header="Nombre Producto"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Cantidad}" Header="Cantidad Comprada"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Precio}" Header="Precio Unitario"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Validacion}" Header="Validado"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Fecha}" Header="Fecha Compra"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Total}" Header="Total"></DataGridTextColumn>
+
+            </DataGrid.Columns>
+
+        </DataGrid>
+        <TextBlock Name="NombreProveedor" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Margin="36,39,0,0"/>
+
+    </Grid>
+</Window>

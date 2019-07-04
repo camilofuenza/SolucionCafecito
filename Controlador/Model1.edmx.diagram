@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="95c797be9bd648ae8fc5220a632552e9" Name="Diagram1">
+        <EntityTypeShape EntityType="UnCafecitoModel.Categoria" Width="1.5" PointX="0.75" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="UnCafecitoModel.Compra" Width="1.5" PointX="3" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="UnCafecitoModel.DetalleCompra" Width="1.5" PointX="5.25" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="UnCafecitoModel.DetalleVenta" Width="1.5" PointX="8.25" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="UnCafecitoModel.Producto" Width="1.5" PointX="3" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="UnCafecitoModel.Proveedor" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="UnCafecitoModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="UnCafecitoModel.Vendedor" Width="1.5" PointX="3.75" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="UnCafecitoModel.Venta" Width="1.5" PointX="6" PointY="11.625" IsExpanded="true" />
+        <AssociationConnector Association="UnCafecitoModel.FK_Producto_Categoria" ManuallyRouted="false" />
+        <AssociationConnector Association="UnCafecitoModel.FK_Compra_Proveedor" ManuallyRouted="false" />
+        <AssociationConnector Association="UnCafecitoModel.FK_DetalleCompra_Compra" ManuallyRouted="false" />
+        <AssociationConnector Association="UnCafecitoModel.FK_DetalleCompra_Producto" ManuallyRouted="false" />
+        <AssociationConnector Association="UnCafecitoModel.FK_DetalleVenta_Producto" ManuallyRouted="false" />
+        <AssociationConnector Association="UnCafecitoModel.FK_DetalleVenta_Venta" ManuallyRouted="false" />
+        <AssociationConnector Association="UnCafecitoModel.FK_Venta_Vendedor" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
