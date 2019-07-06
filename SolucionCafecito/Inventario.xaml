@@ -17,7 +17,8 @@
                 <DataGridTextColumn Binding="{Binding Nombre_Producto}" Header="Nombre Producto"></DataGridTextColumn>
                 <DataGridTextColumn Binding="{Binding Cantidad}" Header="Stock"></DataGridTextColumn>
                 <DataGridTextColumn Binding="{Binding Nombre_Categoria}" Header="Categoria"></DataGridTextColumn>
-                <DataGridTextColumn Binding="{Binding Precio}" Header="Precio Venta"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding PrecioVenta}" Header="Precio Venta"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding PrecioCompra}" Header="Precio Compra"></DataGridTextColumn>
                 
 
             </DataGrid.Columns>

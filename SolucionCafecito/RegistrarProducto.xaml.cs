@@ -22,6 +22,7 @@ namespace SolucionCafecito
         MainWindow ventana1;
         RegistrarProducto registrarProducto;
         Inventario inventario;
+        
 
         Modelo.ModeloProducto metodoProduto = new Modelo.ModeloProducto();
         Modelo.ModeloCategoria metodoCategoria = new Modelo.ModeloCategoria();
@@ -30,15 +31,24 @@ namespace SolucionCafecito
 
             InitializeComponent();
 
-            var lista = (from c in metodoProduto.ListarProducto()
-                         from a in metodoCategoria.ListarCategoria()
+            var lista = (from a in metodoCategoria.ListarCategoria()
                          select new
                          {
-                             a.Nombre_Categoria
+                             a.Nombre_Categoria,
+                             a.id_Categoria
+
                          });
+
+
+            
             foreach (var item in lista)
             {
-                comboCategoria.Items.Add(Convert.ToString(item.Nombre_Categoria));
+                ComboBoxItem item2 = new ComboBoxItem();
+                item2.Content = item.Nombre_Categoria;
+                item2.Tag= item.id_Categoria;
+                comboCategoria.Items.Add(item2);
+                
+                
             }
 
            
@@ -70,45 +80,12 @@ namespace SolucionCafecito
             producto.Cantidad = 0;
             producto.Nombre_Producto = txtNombreProducto.Text.ToString();
             producto.Precio = int.Parse(txtPrecioVenta.Text);
-         
 
-            if (comboCategoria.SelectedIndex==0)
-            {
-                producto.id_Categoria = 1;
-            }
-            if (comboCategoria.SelectedIndex == 1)
-            {
-                producto.id_Categoria = 2;
-            }
-            if (comboCategoria.SelectedIndex == 2)
-            {
-                producto.id_Categoria = 3;
-            }
-            if (comboCategoria.SelectedIndex == 3)
-            {
-                producto.id_Categoria = 4;
-            }
-            if (comboCategoria.SelectedIndex == 4)
-            {
-                producto.id_Categoria = 5;
-            }
-            if (comboCategoria.SelectedIndex == 5)
-            {
-                producto.id_Categoria = 6;
-            }
-            if (comboCategoria.SelectedIndex == 6)
-            {
-                producto.id_Categoria = 7;
-            }
-            if (comboCategoria.SelectedIndex == 7)
-            {
-                producto.id_Categoria = 1004;
-            }
-            if (comboCategoria.SelectedIndex == 8)
-            {
-                producto.id_Categoria = 1005;
-            }
-
+            int id_Categoria= (int)comboCategoria.SelectedValue;
+           producto.id_Categoria = id_Categoria;
+          
+           
+            
             if (metodoProduto.IngresarProducto(producto))
             {
                 MessageBox.Show("Ingresaste un Producto correctamente");
@@ -117,6 +94,7 @@ namespace SolucionCafecito
             {
                 MessageBox.Show("kgaste wimbilimbi");
             }
+            
         }
     }
 

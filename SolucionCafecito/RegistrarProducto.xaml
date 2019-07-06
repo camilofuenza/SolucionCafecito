@@ -17,7 +17,7 @@
         <Label Content="Categoría del producto" HorizontalAlignment="Left" Margin="43,219,0,0" VerticalAlignment="Top" FontFamily="Arial Rounded MT Bold"/>
         <Label Content="Precio de Venta" HorizontalAlignment="Left" Margin="43,293,0,0" VerticalAlignment="Top"/>
         <TextBox Name="txtNombreProducto" HorizontalAlignment="Left" Height="23" Margin="209,154,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <ComboBox Name="comboCategoria" HorizontalAlignment="Left" Margin="211,224,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox  Name="comboCategoria"  HorizontalAlignment="Left" Margin="211,224,0,0" VerticalAlignment="Top" Width="120" SelectedValuePath="Tag"/>
         <TextBox Name="txtPrecioVenta" HorizontalAlignment="Left" Height="23" Margin="209,297,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
         <Button Content="Registrar Producto" HorizontalAlignment="Left" Margin="547,293,0,0" VerticalAlignment="Top" Width="113" Height="56" Click="Button_Click"/>
     </Grid>

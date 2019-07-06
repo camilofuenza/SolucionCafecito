@@ -11,9 +11,12 @@ namespace Modelo
         public int Nro_Factura { get; set; }
         public string Nombre_Producto { get; set; }
         public int Cantidad { get; set; }
-        public int Precio { get; set; }
+        public double Precio { get; set; }
         public string Validacion { get; set; }
         public string Comentario { get; set; }
+        public int id_detalleCompra { get; set; }
+        public double valorUnitario { get; set; }
+
         public DetalleCompra()
         {
             this.Init();
@@ -21,12 +24,14 @@ namespace Modelo
 
         private void Init()
         {
+            id_detalleCompra = 0;
             Nro_Factura = 0;
             Nombre_Producto = string.Empty;
             Cantidad = 0;
             Precio = 0;
             Validacion = string.Empty;
             Comentario = string.Empty;
+            valorUnitario = 0.0;
         }
     }
 }

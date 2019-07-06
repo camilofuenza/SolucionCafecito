@@ -11,7 +11,7 @@
         <EntityTypeShape EntityType="UnCafecitoModel.DetalleVenta" Width="1.5" PointX="8.25" PointY="2.75" IsExpanded="true" />
         <EntityTypeShape EntityType="UnCafecitoModel.Producto" Width="1.5" PointX="3" PointY="2.625" IsExpanded="true" />
         <EntityTypeShape EntityType="UnCafecitoModel.Proveedor" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="UnCafecitoModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="UnCafecitoModel.sysdiagrams" Width="1.5" PointX="7.625" PointY="8" IsExpanded="true" />
         <EntityTypeShape EntityType="UnCafecitoModel.Vendedor" Width="1.5" PointX="3.75" PointY="12" IsExpanded="true" />
         <EntityTypeShape EntityType="UnCafecitoModel.Venta" Width="1.5" PointX="6" PointY="11.625" IsExpanded="true" />
         <AssociationConnector Association="UnCafecitoModel.FK_Producto_Categoria" ManuallyRouted="false" />

@@ -7,9 +7,29 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Button Content="Ventas" HorizontalAlignment="Left" Height="200" Margin="34,95,0,0" VerticalAlignment="Top" Width="200"/>
-        <Button Content="Compras" HorizontalAlignment="Left" Height="200" Margin="288,95,0,0" VerticalAlignment="Top" Width="200" Click="Button_Click"/>
-        <Button Content="Inventario" HorizontalAlignment="Left" Height="200" Margin="540,95,0,0" VerticalAlignment="Top" Width="200" Click="IrInventario"/>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Imagenes/Fondo_MP.png" Stretch="UniformToFill"/>
+        </Grid.Background>
+        <Button   BorderThickness="0" Background="{x:Null}" HorizontalAlignment="Left" Height="200" Margin="34,95,0,0" VerticalAlignment="Top" Width="200">
+            <StackPanel>
+                <Image Source="/Imagenes/ventas.png" />
+               
+            </StackPanel>
+        </Button>
+
+        <Button  BorderThickness="0" Background="{x:Null}" HorizontalAlignment="Left" Height="200" Margin="288,95,0,0" VerticalAlignment="Top" Width="200" Click="Button_Click">
+            <StackPanel>
+                <Image Source="/Imagenes/Compras.png" />
+                
+            </StackPanel>
+        </Button>
+
+        <Button BorderThickness="0" Background="{x:Null}" HorizontalAlignment="Left" Height="200" Margin="540,95,0,0" VerticalAlignment="Top" Width="200" Click="IrInventario">
+            <StackPanel>
+                <Image Source="/Imagenes/Inventario.png" />
+
+            </StackPanel>
+        </Button>
 
     </Grid>
 </Window>

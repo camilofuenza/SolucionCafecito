@@ -147,5 +147,13 @@
       <Name>Modelo</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\Fondo_MP.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\Compras.png" />
+    <Resource Include="Imagenes\Inventario.png" />
+    <Resource Include="Imagenes\ventas.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

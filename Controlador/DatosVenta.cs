@@ -7,19 +7,19 @@ using System.Threading.Tasks;
 
 namespace Controlador
 {
-    public class DatosCompra
+    public class DatosVenta
     {
         UnCafecitoEntities entity = new UnCafecitoEntities();
 
 
-        public bool IngresarCompra(Compra c)
+        public bool IngresarVenta(Venta v)
         {
             bool res = false;
 
-            if (BuscarCompra(c.Nro_Factura) == null)
+            if (BuscarVenta(v.Nro_Boleta) == null)
             {
-               
-                entity.Compra.Add(c);
+
+                entity.Venta.Add(v);
 
                 try
                 {
@@ -38,13 +38,13 @@ namespace Controlador
             return res;
         }
 
-        public Compra BuscarCompra(int nrofactura)
+        public Venta BuscarVenta(int nroBoleta)
         {
 
-            Compra c = entity.Compra.FirstOrDefault(a => a.Nro_Factura.Equals(nrofactura));
-            if (c != null)
+            Venta v = entity.Venta.FirstOrDefault(a => a.Nro_Boleta.Equals(nroBoleta));
+            if (v != null)
             {
-                return c;
+                return v;
             }
             else
             {
@@ -55,16 +55,16 @@ namespace Controlador
 
 
 
-        public bool ModificarCompra(Compra c)
+        public bool ModificarVenta(Venta v)
         {
 
-            Compra compra= entity.Compra.FirstOrDefault(a => a.Nro_Factura== c.Nro_Factura);
-            if (compra != null)
+            Venta Venta = entity.Venta.FirstOrDefault(a => a.Nro_Boleta == v.Nro_Boleta);
+            if (Venta != null)
             {
-                compra.Total = c.Total;
-                compra.Fecha = c.Fecha;
-                compra.id_Proveedor = c.id_Proveedor;
-               
+                Venta.RutVendedor = v.RutVendedor;
+                Venta.FechaVenta = v.FechaVenta;
+                Venta.Total = v.Total;
+                Venta.TipoVenta = v.TipoVenta;
 
                 entity.SaveChanges();
                 return true;
@@ -76,10 +76,11 @@ namespace Controlador
             }
 
         }
-        public List<Compra> ListarCompras()
+        public List<Venta> ListarVentas()
         {
-            var lista = (from con in entity.Compra select con).ToList();
+            var lista = (from con in entity.Venta select con).ToList();
             return lista;
         }
     }
 }
+

@@ -22,7 +22,7 @@ namespace Controlador
         public int Nro_Factura { get; set; }
         public Nullable<int> id_Proveedor { get; set; }
         public Nullable<System.DateTime> Fecha { get; set; }
-        public Nullable<int> Total { get; set; }
+        public Nullable<double> Total { get; set; }
     
         public virtual Proveedor Proveedor { get; set; }
         public virtual ICollection<DetalleCompra> DetalleCompra { get; set; }

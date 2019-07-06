@@ -21,6 +21,7 @@ namespace SolucionCafecito
     {
         Modelo.ModeloProducto producto = new Modelo.ModeloProducto();
         Modelo.ModeloCategoria categoria = new Modelo.ModeloCategoria();
+        Modelo.ModeloDetalleCompra detalleCompra = new Modelo.ModeloDetalleCompra();
 
         MainWindow ventana1;
         RegistrarProducto registrarProducto;
@@ -30,14 +31,17 @@ namespace SolucionCafecito
 
             var lista = (from p in producto.ListarProducto()
                          from c in categoria.ListarCategoria()
+                         
                          where p.id_Categoria==c.id_Categoria
+                         
 
                          select new
                          {
                              p.Nombre_Producto,
                              p.Cantidad,
                              c.Nombre_Categoria,
-                             p.Precio
+                             p.Precio,
+                             
 
 
                          });

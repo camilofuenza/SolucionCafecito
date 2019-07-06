@@ -11,7 +11,7 @@ namespace Modelo
         public int Nro_Factura { get; set; }
         public int id_Proveedor { get; set; }
         public DateTime Fecha { get; set; }
-        public int Total { get; set; }
+        public double Total { get; set; }
 
         public Compra()
         {
@@ -23,7 +23,7 @@ namespace Modelo
             Nro_Factura = 0;
             id_Proveedor = 0;
             Fecha = DateTime.Parse("01/01/1990");
-            Total = 0;
+            Total = 0.0;
 
         }
 

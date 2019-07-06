@@ -27,6 +27,19 @@ namespace SolucionCafecito
 
         Modelo.ModeloProveedor proveedores = new Modelo.ModeloProveedor();
         Modelo.ModeloProducto productos = new Modelo.ModeloProducto();
+        Modelo.ModeloCompra compras = new Modelo.ModeloCompra();
+        Modelo.ModeloDetalleCompra detalleCompra = new Modelo.ModeloDetalleCompra();
+
+        Modelo.Compra compra = new Modelo.Compra();
+        Modelo.DetalleCompra dc = new Modelo.DetalleCompra();
+
+        double totalporproducto;
+        double cantidadComprada;
+        double precioUnitarioUnidad;
+        double unidadescontenidas;
+        double calculoIva;
+        double oldvalueforTotal;
+
         public RegistrarCompra()
         {
             InitializeComponent();
@@ -41,12 +54,12 @@ namespace SolucionCafecito
 
             foreach(var item in lista)
             {
-                
-                
-               
-                comboProveedor.Items.Add(Convert.ToString(item.NombreProveedor));
-                
-                comboProveedor.SelectedValuePath = item.id_Proveedor.ToString();
+
+                ComboBoxItem item2 = new ComboBoxItem();
+                item2.Content = item.NombreProveedor;
+                item2.Tag = item.id_Proveedor;
+                comboProveedor.Items.Add(item2);
+
                
             }
 
@@ -59,11 +72,16 @@ namespace SolucionCafecito
 
             foreach (var item in listaproductos)
             {
-                comboProducto.Items.Add(Convert.ToString(item.Nombre_Producto));
-                comboProveedor.SelectedValuePath = item.Nombre_Producto.ToString();
+                ComboBoxItem item2 = new ComboBoxItem();
+                item2.Content = item.Nombre_Producto;
+                item2.Tag = item.Nombre_Producto;
+                comboProducto.Items.Add(item2);
+                
             }
 
-
+            txtUnidadesContenidas.IsEnabled = false;
+            lbloldValue.Content = 0;
+            oldvalueforTotal = 0;
         }
 
         private void ListarProveedoresClick(object sender, RoutedEventArgs e)
@@ -95,20 +113,107 @@ namespace SolucionCafecito
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Modelo.Compra compra = new Modelo.Compra();
-            Modelo.DetalleCompra dc = new Modelo.DetalleCompra();
 
-            compra.Nro_Factura = int.Parse(txtFactura.Text);
+            
+
+            compra.Nro_Factura = int.Parse(txtFactura.Text.ToString());
             compra.Fecha = Convert.ToDateTime(dtpFechaCompra.SelectedDate);
+            int id_Proveedor = (int)comboProveedor.SelectedValue;
+            compra.id_Proveedor = id_Proveedor;
             compra.Total = 0;
-            compra.id_Proveedor = int.Parse(comboProveedor.SelectedValuePath);
 
-            dc.Nro_Factura = int.Parse(txtFactura.Text);
-            dc.Nombre_Producto = comboProducto.SelectedValuePath;
-            dc.Cantidad = int.Parse(txtCantidadProducto.Text);
-            dc.Precio = int.Parse(txtTotalPorProducto.Text);
+            dc.Nro_Factura = compra.Nro_Factura;
+            string Nombre_Producto= (string)comboProducto.SelectedValue;
+            dc.Nombre_Producto = Nombre_Producto.Trim();
+            dc.Cantidad = int.Parse(txtCantidadProducto.Text.ToString());
+            dc.Precio = int.Parse(txtTotalPorProducto.Text.ToString());
+
+            if (rdbSi.IsChecked==true)
+            {
+                dc.Validacion = "Si";
+
+            }
+            if (rdbNo.IsChecked == true)
+            {
+                dc.Validacion = "No";
+            }
+            dc.Comentario = txtComentario.Text.ToString();
+
+            
+
+            if (rdbUnidad.IsChecked == true)
+            {
+                totalporproducto = double.Parse(txtTotalPorProducto.Text);
+                cantidadComprada = double.Parse(txtCantidadProducto.Text);
+                precioUnitarioUnidad = (totalporproducto / cantidadComprada);
+                txtValorUnitario.Text = precioUnitarioUnidad.ToString();
+                dc.valorUnitario = precioUnitarioUnidad;
+            }
+
+            if (rbdPorMayor.IsChecked == true)
+            {
+                txtUnidadesContenidas.IsEnabled = true;
+                totalporproducto = double.Parse(txtTotalPorProducto.Text);
+                cantidadComprada = double.Parse(txtCantidadProducto.Text);
+                unidadescontenidas = double.Parse(txtUnidadesContenidas.Text);
+                precioUnitarioUnidad = (totalporproducto / (cantidadComprada*unidadescontenidas));
+                txtValorUnitario.Text = precioUnitarioUnidad.ToString();
+                dc.valorUnitario = precioUnitarioUnidad;
+            }
+
+            txtTotalNeto.Text= (double.Parse(txtTotalPorProducto.Text) + oldvalueforTotal).ToString();
+            
 
 
+
+            
+            if (compras.BuscarCompra(compra.Nro_Factura) == null)
+            {
+                compras.IngresarCompra(compra);
+
+            }
+            else
+            {
+                compras.ModificarCompra(compra);
+            }
+           
+            
+            
+                if (compras.BuscarCompra(compra.Nro_Factura)!=null)
+                {
+                    if (detalleCompra.IngresarDetalleCompra(dc))
+                    {
+                    txtCantidadProducto.Text = "";
+                    txtComentario.Text = "";
+                    lbloldValue.Content = txtTotalNeto.Text.ToString();
+                    oldvalueforTotal = double.Parse(lbloldValue.Content.ToString());
+                    txtTotalPorProducto.Text = "";
+                    
+                        
+                        MessageBox.Show("Su compra se ha agregado exitosamente!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Cagaste win");
+                    }
+                }
+        }
+
+        private void Iva_Click(object sender, RoutedEventArgs e)
+        {
+            calculoIva = double.Parse(txtTotalNeto.Text) * 0.19;
+            txtIva.Text = (calculoIva).ToString();
+            txtTotalFactura.Text = (calculoIva + double.Parse(txtTotalNeto.Text)).ToString();
+            compra.Total = double.Parse(txtTotalFactura.Text);
+            if (compras.BuscarCompra(compra.Nro_Factura) == null)
+            {
+                compras.IngresarCompra(compra);
+
+            }
+            else
+            {
+                compras.ModificarCompra(compra);
+            }
             
         }
     }

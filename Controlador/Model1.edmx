@@ -19,7 +19,7 @@
           <Property Name="Nro_Factura" Type="int" Nullable="false" />
           <Property Name="id_Proveedor" Type="int" />
           <Property Name="Fecha" Type="datetime" />
-          <Property Name="Total" Type="int" />
+          <Property Name="Total" Type="float" />
         </EntityType>
         <EntityType Name="DetalleCompra">
           <Key>
@@ -28,10 +28,11 @@
           <Property Name="Nro_Factura" Type="int" />
           <Property Name="Nombre_Producto" Type="nchar" MaxLength="15" />
           <Property Name="Cantidad" Type="int" />
-          <Property Name="Precio" Type="int" />
+          <Property Name="Precio" Type="float" />
           <Property Name="Validacion" Type="nchar" MaxLength="10" />
           <Property Name="id_detalleCompra" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Comentario" Type="varchar" MaxLength="50" />
+          <Property Name="precio_Unitario" Type="float" />
         </EntityType>
         <EntityType Name="DetalleVenta">
           <Key>
@@ -41,6 +42,7 @@
           <Property Name="Nombre_Producto" Type="nchar" MaxLength="15" />
           <Property Name="Cantidad" Type="int" />
           <Property Name="id_DetalleVenta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TotalporProducto" Type="float" />
         </EntityType>
         <EntityType Name="Producto">
           <Key>
@@ -86,7 +88,7 @@
           <Property Name="Nro_Boleta" Type="int" Nullable="false" />
           <Property Name="RutVendedor" Type="nchar" MaxLength="10" Nullable="false" />
           <Property Name="FechaVenta" Type="datetime" />
-          <Property Name="Total" Type="int" />
+          <Property Name="Total" Type="float" />
           <Property Name="TipoVenta" Type="nchar" MaxLength="10" />
         </EntityType>
         <Association Name="FK_Compra_Proveedor">
@@ -262,7 +264,7 @@
           <Property Name="Nro_Factura" Type="Int32" Nullable="false" />
           <Property Name="id_Proveedor" Type="Int32" />
           <Property Name="Fecha" Type="DateTime" Precision="3" />
-          <Property Name="Total" Type="Int32" />
+          <Property Name="Total" Type="Double" />
           <NavigationProperty Name="Proveedor" Relationship="Self.FK_Compra_Proveedor" FromRole="Compra" ToRole="Proveedor" />
           <NavigationProperty Name="DetalleCompra" Relationship="Self.FK_DetalleCompra_Compra" FromRole="Compra" ToRole="DetalleCompra" />
         </EntityType>
@@ -273,12 +275,13 @@
           <Property Name="Nro_Factura" Type="Int32" />
           <Property Name="Nombre_Producto" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
           <Property Name="Cantidad" Type="Int32" />
-          <Property Name="Precio" Type="Int32" />
+          <Property Name="Precio" Type="Double" />
           <Property Name="Validacion" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="id_detalleCompra" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="Compra" Relationship="Self.FK_DetalleCompra_Compra" FromRole="DetalleCompra" ToRole="Compra" />
           <NavigationProperty Name="Producto" Relationship="Self.FK_DetalleCompra_Producto" FromRole="DetalleCompra" ToRole="Producto" />
           <Property Name="Comentario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="precio_Unitario" Type="Double" />
         </EntityType>
         <EntityType Name="DetalleVenta">
           <Key>
@@ -290,6 +293,7 @@
           <Property Name="id_DetalleVenta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="Producto" Relationship="Self.FK_DetalleVenta_Producto" FromRole="DetalleVenta" ToRole="Producto" />
           <NavigationProperty Name="Venta" Relationship="Self.FK_DetalleVenta_Venta" FromRole="DetalleVenta" ToRole="Venta" />
+          <Property Name="TotalporProducto" Type="Double" />
         </EntityType>
         <EntityType Name="Producto">
           <Key>
@@ -536,6 +540,7 @@
           <EntitySetMapping Name="DetalleCompra">
             <EntityTypeMapping TypeName="UnCafecitoModel.DetalleCompra">
               <MappingFragment StoreEntitySet="DetalleCompra">
+                <ScalarProperty Name="precio_Unitario" ColumnName="precio_Unitario" />
                 <ScalarProperty Name="Comentario" ColumnName="Comentario" />
                 <ScalarProperty Name="Nro_Factura" ColumnName="Nro_Factura" />
                 <ScalarProperty Name="Nombre_Producto" ColumnName="Nombre_Producto" />
@@ -549,6 +554,7 @@
           <EntitySetMapping Name="DetalleVenta">
             <EntityTypeMapping TypeName="UnCafecitoModel.DetalleVenta">
               <MappingFragment StoreEntitySet="DetalleVenta">
+                <ScalarProperty Name="TotalporProducto" ColumnName="TotalporProducto" />
                 <ScalarProperty Name="Nro_Boleta" ColumnName="Nro_Boleta" />
                 <ScalarProperty Name="Nombre_Producto" ColumnName="Nombre_Producto" />
                 <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />

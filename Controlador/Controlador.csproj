@@ -59,6 +59,7 @@
     </Compile>
     <Compile Include="DatosProveedor.cs" />
     <Compile Include="DatosVendedor.cs" />
+    <Compile Include="DatosVenta.cs" />
     <Compile Include="DetalleCompra.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

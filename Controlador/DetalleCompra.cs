@@ -17,10 +17,11 @@ namespace Controlador
         public Nullable<int> Nro_Factura { get; set; }
         public string Nombre_Producto { get; set; }
         public Nullable<int> Cantidad { get; set; }
-        public Nullable<int> Precio { get; set; }
+        public Nullable<double> Precio { get; set; }
         public string Validacion { get; set; }
         public int id_detalleCompra { get; set; }
         public string Comentario { get; set; }
+        public Nullable<double> precio_Unitario { get; set; }
     
         public virtual Compra Compra { get; set; }
         public virtual Producto Producto { get; set; }
