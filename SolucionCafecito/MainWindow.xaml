@@ -5,26 +5,29 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SolucionCafecito"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <Grid.Background>
-            <ImageBrush ImageSource="/Imagenes/Fondo_MP.png" Stretch="UniformToFill"/>
-        </Grid.Background>
-        <Button   BorderThickness="0" Background="{x:Null}" HorizontalAlignment="Left" Height="200" Margin="34,95,0,0" VerticalAlignment="Top" Width="200">
+        Title="Un Cafecito" Height="450" Width="800" Icon="../Imagenes/uncafectito.png">
+
+    <Grid Margin="0,0,-8,0" Background="#EAE4DF">
+
+      
+
+        <StackPanel Margin="0,8,0,-8">
+            <Image Source="/Imagenes/Fondo_MP.png" Stretch="Uniform" Height="400" Margin="0,0,10,0"/>
+        </StackPanel>
+        <Button    HorizontalAlignment="Left" Height="150" Margin="90,143,0,0" VerticalAlignment="Top" Width="150" BorderThickness="0" Background="{x:Null}" Click="Ventas_Click">
             <StackPanel>
                 <Image Source="/Imagenes/ventas.png" />
-               
             </StackPanel>
         </Button>
 
-        <Button  BorderThickness="0" Background="{x:Null}" HorizontalAlignment="Left" Height="200" Margin="288,95,0,0" VerticalAlignment="Top" Width="200" Click="Button_Click">
+        <Button  BorderThickness="0" Background="{x:Null}" HorizontalAlignment="Left" Height="150" Margin="324,139,0,0" VerticalAlignment="Top" Width="150" Click="Button_Click">
             <StackPanel>
                 <Image Source="/Imagenes/Compras.png" />
-                
+
             </StackPanel>
         </Button>
 
-        <Button BorderThickness="0" Background="{x:Null}" HorizontalAlignment="Left" Height="200" Margin="540,95,0,0" VerticalAlignment="Top" Width="200" Click="IrInventario">
+        <Button BorderThickness="0" Background="{x:Null}" HorizontalAlignment="Left" Height="150" Margin="558,133,0,0" VerticalAlignment="Top" Width="150" Click="IrInventario">
             <StackPanel>
                 <Image Source="/Imagenes/Inventario.png" />
 

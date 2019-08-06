@@ -24,6 +24,7 @@ namespace Controlador
         public Nullable<int> Cantidad { get; set; }
         public Nullable<int> id_Categoria { get; set; }
         public Nullable<int> Precio { get; set; }
+        public byte[] QRProducto { get; set; }
     
         public virtual Categoria Categoria { get; set; }
         public virtual ICollection<DetalleCompra> DetalleCompra { get; set; }

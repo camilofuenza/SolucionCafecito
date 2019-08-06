@@ -19,7 +19,8 @@ namespace Modelo
                 Nombre_Producto = p.Nombre_Producto,
                 Cantidad=p.Cantidad,
                 id_Categoria=p.id_Categoria,
-                Precio=p.Precio
+                Precio=p.Precio,
+                QRProducto=p.QRProducto
 
 
 
@@ -38,6 +39,22 @@ namespace Modelo
         public bool EliminarProducto(string RutProducto)
         {
             return metodos.EliminarProducto(RutProducto);
+        }
+
+        public bool ModificarProducto(Producto p)
+        {
+            Controlador.Producto nuevo = new Controlador.Producto
+            {
+
+                Nombre_Producto=p.Nombre_Producto,
+                Cantidad=p.Cantidad,
+                id_Categoria=p.id_Categoria,
+                Precio=p.Precio,
+                
+
+
+            };
+            return metodos.ModificarProducto(nuevo);
         }
 
         public List<Controlador.Producto> ListarProducto()

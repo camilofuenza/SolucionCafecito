@@ -39,5 +39,22 @@ namespace Modelo
         {
             return (metodos.ListarVentas());
         }
+
+        public bool ModificarVenta(Venta v)
+        {
+            Controlador.Venta nuevo = new Controlador.Venta
+
+            {
+                Nro_Boleta=v.Nro_Boleta,
+                RutVendedor=v.RutVendedor,
+                FechaVenta=v.FechaVenta,
+                Total=v.TotalVenta,
+                TipoVenta=v.TipoVenta
+               
+
+
+            };
+            return metodos.ModificarVenta(nuevo);
+        }
     }
 }

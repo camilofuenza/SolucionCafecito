@@ -6,22 +6,82 @@
         xmlns:local="clr-namespace:SolucionCafecito"
         mc:Ignorable="d"
         Title="Inventario" Height="450" Width="800">
+    <Window.Resources>
+    <Style  x:Key="button" TargetType="{x:Type Button}">
+        <Setter Property="Background" Value="{x:Null}" />
+
+        <Setter Property="BorderThickness" Value="0" />
+        <Style.Resources>
+            <Style TargetType="{x:Type Border}">
+                <Setter Property="CornerRadius" Value="100"></Setter>
+            </Style>
+        </Style.Resources>
+    </Style>
+
+        <Style  x:Key="datraGrid" TargetType="{x:Type DataGrid}">
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="BorderBrush" Value="Green"/>
+            <Setter Property="RowBackground" Value="#FFF1E2"/>
+            <Setter Property="AlternatingRowBackground" Value="#FDE5DF"/>
+            
+       
+            <Style.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="80"></Setter>
+                </Style>
+            </Style.Resources>
+        </Style>
+    </Window.Resources>
     <Grid>
         <StackPanel Orientation="Horizontal" Height="35" VerticalAlignment="Top">
-            <Button Content="Registrar Producto" Click="RegistrarProductoClick"></Button>
-            <Button Content="Menu Pricipal" Click="MenuPrincipalClick"></Button>
+            <Button Content="registrar producto" Click="RegistrarProductoClick" >
+              
+            </Button>
+            <Button  Click="MenuPrincipalClick" Style="{StaticResource button}">
+                <StackPanel>
+                    <Image Source="/Imagenes/MenuPrincipal_RC.png" />
+                </StackPanel>
+            </Button>
+            
         </StackPanel>
-        
-        <DataGrid Name="ProductosGrid" HorizontalAlignment="Left" AutoGenerateColumns="False" Height="185" Margin="35,82,0,0" VerticalAlignment="Top" Width="595">
+
+        <DataGrid Style="{StaticResource datraGrid}" EnableRowVirtualization="False" GridLinesVisibility="None" BorderThickness="0" BorderBrush="Green" RowBackground="#FFF1E2" AlternatingRowBackground="#FDE5DF"    Name="ProductosGrid" HorizontalAlignment="Left" AutoGenerateColumns="False" Height="185" Margin="35,82,0,0" VerticalAlignment="Top" Width="595" LoadingRow="ProductosGrid_LoadingRow">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Nombre_Producto}" Header="Nombre Producto"></DataGridTextColumn>
-                <DataGridTextColumn Binding="{Binding Cantidad}" Header="Stock"></DataGridTextColumn>
+                
+                <DataGridTextColumn Binding="{Binding Cantidad}" Header="Stock">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Style.Triggers>
+                                <Trigger Property="Text" Value="0">
+                                    <Setter Property="Background" Value="Red"/>
+                                </Trigger>
+                                <Trigger Property="Text" Value="1">
+                                    <Setter Property="Background" Value="Red"/>
+                                </Trigger>
+                                <Trigger Property="Text" Value="2">
+                                    <Setter Property="Background" Value="Red"/>
+                                </Trigger>
+                                <Trigger Property="Text" Value="3">
+                                    <Setter Property="Background" Value="Red"/>
+                                </Trigger>
+                                <Trigger Property="Text" Value="4">
+                                    <Setter Property="Background" Value="Red"/>
+                                </Trigger>
+                                <Trigger Property="Text" Value="5">
+                                    <Setter Property="Background" Value="Red"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
                 <DataGridTextColumn Binding="{Binding Nombre_Categoria}" Header="Categoria"></DataGridTextColumn>
-                <DataGridTextColumn Binding="{Binding PrecioVenta}" Header="Precio Venta"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Precio}" Header="Precio Venta"></DataGridTextColumn>
                 <DataGridTextColumn Binding="{Binding PrecioCompra}" Header="Precio Compra"></DataGridTextColumn>
                 
 
             </DataGrid.Columns>
+            
         </DataGrid>
     </Grid>
 </Window>

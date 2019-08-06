@@ -83,6 +83,29 @@ namespace Controlador
             return res;
         }
 
+
+        public bool ModificarProducto(Producto p)
+        {
+
+            Producto producto = entity.Producto.FirstOrDefault(a => a.Nombre_Producto.Equals(p.Nombre_Producto));
+            if (producto != null)
+            {
+                producto.Cantidad = p.Cantidad;
+                producto.id_Categoria = p.id_Categoria;
+                producto.Precio = p.Precio;
+
+
+                entity.SaveChanges();
+                return true;
+
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+
         public List<Producto> ListarProductos()
         {
             var lista = (from con in entity.Producto select con).ToList();

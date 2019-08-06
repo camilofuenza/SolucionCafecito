@@ -43,6 +43,7 @@
           <Property Name="Cantidad" Type="int" />
           <Property Name="id_DetalleVenta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TotalporProducto" Type="float" />
+          <Property Name="Precio_unitario" Type="float" />
         </EntityType>
         <EntityType Name="Producto">
           <Key>
@@ -52,6 +53,7 @@
           <Property Name="Cantidad" Type="int" />
           <Property Name="id_Categoria" Type="int" />
           <Property Name="Precio" Type="int" />
+          <Property Name="QRProducto" Type="image" />
         </EntityType>
         <EntityType Name="Proveedor">
           <Key>
@@ -88,7 +90,7 @@
           <Property Name="Nro_Boleta" Type="int" Nullable="false" />
           <Property Name="RutVendedor" Type="nchar" MaxLength="10" Nullable="false" />
           <Property Name="FechaVenta" Type="datetime" />
-          <Property Name="Total" Type="float" />
+          <Property Name="Total" Type="int" />
           <Property Name="TipoVenta" Type="nchar" MaxLength="10" />
         </EntityType>
         <Association Name="FK_Compra_Proveedor">
@@ -294,6 +296,7 @@
           <NavigationProperty Name="Producto" Relationship="Self.FK_DetalleVenta_Producto" FromRole="DetalleVenta" ToRole="Producto" />
           <NavigationProperty Name="Venta" Relationship="Self.FK_DetalleVenta_Venta" FromRole="DetalleVenta" ToRole="Venta" />
           <Property Name="TotalporProducto" Type="Double" />
+          <Property Name="Precio_unitario" Type="Double" />
         </EntityType>
         <EntityType Name="Producto">
           <Key>
@@ -306,6 +309,7 @@
           <NavigationProperty Name="Categoria" Relationship="Self.FK_Producto_Categoria" FromRole="Producto" ToRole="Categoria" />
           <NavigationProperty Name="DetalleCompra" Relationship="Self.FK_DetalleCompra_Producto" FromRole="Producto" ToRole="DetalleCompra" />
           <NavigationProperty Name="DetalleVenta" Relationship="Self.FK_DetalleVenta_Producto" FromRole="Producto" ToRole="DetalleVenta" />
+          <Property Name="QRProducto" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="Proveedor">
           <Key>
@@ -554,6 +558,7 @@
           <EntitySetMapping Name="DetalleVenta">
             <EntityTypeMapping TypeName="UnCafecitoModel.DetalleVenta">
               <MappingFragment StoreEntitySet="DetalleVenta">
+                <ScalarProperty Name="Precio_unitario" ColumnName="Precio_unitario" />
                 <ScalarProperty Name="TotalporProducto" ColumnName="TotalporProducto" />
                 <ScalarProperty Name="Nro_Boleta" ColumnName="Nro_Boleta" />
                 <ScalarProperty Name="Nombre_Producto" ColumnName="Nombre_Producto" />
@@ -565,6 +570,7 @@
           <EntitySetMapping Name="Producto">
             <EntityTypeMapping TypeName="UnCafecitoModel.Producto">
               <MappingFragment StoreEntitySet="Producto">
+                <ScalarProperty Name="QRProducto" ColumnName="QRProducto" />
                 <ScalarProperty Name="Nombre_Producto" ColumnName="Nombre_Producto" />
                 <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
                 <ScalarProperty Name="id_Categoria" ColumnName="id_Categoria" />

@@ -25,6 +25,7 @@ namespace SolucionCafecito
         
         ListarProveedores ventana2;
         Inventario ventana5;
+        ListarVentas ventana1;
 
         public MainWindow()
         {
@@ -45,6 +46,15 @@ namespace SolucionCafecito
         {
             ventana5 = new Inventario();
             ventana5.Show();
+            this.Close();
+
+
+
+        }
+        private void Ventas_Click(object sender, RoutedEventArgs e)
+        {
+            ventana1 = new ListarVentas();
+            ventana1.Show();
             this.Close();
 
 

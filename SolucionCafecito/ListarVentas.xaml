@@ -1,0 +1,36 @@
+﻿<Window x:Class="SolucionCafecito.ListarVentas"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SolucionCafecito"
+        mc:Ignorable="d"
+        Title="ListarVentas" Height="450" Width="800">
+    <Grid>
+        <DataGrid Name="VentasGrid" HorizontalAlignment="Left" AutoGenerateColumns="False" Height="185" Margin="35,82,0,0" VerticalAlignment="Top" Width="673">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Nro_Boleta}" Header="Nro Boleta"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding RutVendedor}" Header="Rut Vendedor"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding FechaVenta}" Header="Fecha"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Total}" Header="Total"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding TipoVenta}" Header="Tipo Venta"></DataGridTextColumn>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <!--<Button Name="Selector" Click="SeleccionarProveedor" Content="Seleccionar Proveedor"></Button>-->
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+
+        </DataGrid>
+        <StackPanel Orientation="Horizontal" Height="35" VerticalAlignment="Top">
+            <Button Content="Listar Ventas" Click="ListarVentasClick"></Button>
+            <Button Content="Registrar Venta" Click="RegistrarVentasClick"></Button>
+            
+            <Button Content="Menu Pricipal" Click="MenuPrincipalClick"></Button>
+        </StackPanel>
+
+    </Grid>
+</Window>

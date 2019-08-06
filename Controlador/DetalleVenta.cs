@@ -19,6 +19,7 @@ namespace Controlador
         public Nullable<int> Cantidad { get; set; }
         public int id_DetalleVenta { get; set; }
         public Nullable<double> TotalporProducto { get; set; }
+        public Nullable<double> Precio_unitario { get; set; }
     
         public virtual Producto Producto { get; set; }
         public virtual Venta Venta { get; set; }

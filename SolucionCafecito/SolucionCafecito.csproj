@@ -33,9 +33,19 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <NoWin32Manifest>true</NoWin32Manifest>
+  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="QRCoder, Version=1.3.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\QRCoder.1.3.6\lib\net40\QRCoder.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Common, Version=4.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Drawing.Common.4.5.0\lib\net461\System.Drawing.Common.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -63,11 +73,17 @@
     <Compile Include="ListarProveedores.xaml.cs">
       <DependentUpon>ListarProveedores.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ListarVentas.xaml.cs">
+      <DependentUpon>ListarVentas.xaml</DependentUpon>
+    </Compile>
     <Compile Include="RegistrarCompra.xaml.cs">
       <DependentUpon>RegistrarCompra.xaml</DependentUpon>
     </Compile>
     <Compile Include="RegistrarProducto.xaml.cs">
       <DependentUpon>RegistrarProducto.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RegistrarVenta.xaml.cs">
+      <DependentUpon>RegistrarVenta.xaml</DependentUpon>
     </Compile>
     <Compile Include="RegistroProveedor.xaml.cs">
       <DependentUpon>RegistroProveedor.xaml</DependentUpon>
@@ -81,6 +97,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ListarProveedores.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ListarVentas.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -101,6 +121,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="RegistrarProducto.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RegistrarVenta.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -127,6 +151,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -154,6 +179,20 @@
     <Resource Include="Imagenes\Compras.png" />
     <Resource Include="Imagenes\Inventario.png" />
     <Resource Include="Imagenes\ventas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\uncafectito.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\Calendario_RC.png" />
+    <Resource Include="Imagenes\Guardar_RC.png" />
+    <Resource Include="Imagenes\IVAGuardar.png" />
+    <Resource Include="Imagenes\ListaProve_RC.png" />
+    <Resource Include="Imagenes\Logo_Chico_RC.png" />
+    <Resource Include="Imagenes\MenuPrincipal_RC.png" />
+    <Resource Include="Imagenes\PopUp_1_RC.png" />
+    <Resource Include="Imagenes\RegistrarCompra_RC.png" />
+    <Resource Include="Imagenes\RegistrarProve_RC.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

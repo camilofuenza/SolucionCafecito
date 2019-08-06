@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Controlador;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,24 +33,33 @@ namespace SolucionCafecito
 
             var lista = (from p in producto.ListarProducto()
                          from c in categoria.ListarCategoria()
-                         
-                         where p.id_Categoria==c.id_Categoria
-                         
+                       
+                         where p.id_Categoria == c.id_Categoria
+                        
+
 
                          select new
                          {
                              p.Nombre_Producto,
                              p.Cantidad,
                              c.Nombre_Categoria,
-                             p.Precio,
+                             p.Precio
                              
 
 
                          });
 
+
+
             ProductosGrid.ItemsSource = lista;
+           
+
+
 
         }
+
+
+
 
         private void MenuPrincipalClick(object sender, RoutedEventArgs e)
         {
@@ -58,9 +69,36 @@ namespace SolucionCafecito
         }
         private void RegistrarProductoClick(object sender, RoutedEventArgs e)
         {
-            registrarProducto= new RegistrarProducto();
+            registrarProducto = new RegistrarProducto();
             registrarProducto.Show();
             this.Close();
         }
+
+      
+
+        private void ProductosGrid_LoadingRow(object sender, DataGridRowEventArgs e)
+        {
+            /*DataGridRow row = e.Row;
+           
+
+            if (e.Row.Item != null)
+            {
+                DataRowView rView = e.Row.Item as DataRowView;
+
+                int rView2 = Convert.ToInt32(rView.Row.ItemArray[1].ToString());
+                if (rView2 < 5)
+                {
+                    e.Row.Background = Brushes.Red;
+                }
+                
+                
+            }
+            else
+            {
+                e.Row.Background = Brushes.Blue;
+            }
+            */
+        }
     }
 }
+

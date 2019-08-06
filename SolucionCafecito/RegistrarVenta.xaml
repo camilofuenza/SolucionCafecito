@@ -1,0 +1,152 @@
+﻿<Window x:Class="SolucionCafecito.RegistrarVenta"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SolucionCafecito"
+        mc:Ignorable="d"
+        Title="RegistrarVenta" Height="450" Width="800">
+
+
+
+    <Window.Resources>
+        <Style  x:Key="textbox" TargetType="{x:Type TextBox}">
+            <Setter Property="Background" Value="#FDE5DF" />
+            <Setter Property="BorderBrush" Value="#F9AC99" />
+            <Setter Property="BorderThickness" Value="2" />
+            <Style.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="12"></Setter>
+                </Style>
+            </Style.Resources>
+        </Style>
+
+        <Style  x:Key="textbox2" TargetType="{x:Type TextBox}">
+            <Setter Property="Background" Value="#FFF1E2" />
+            <Setter Property="BorderBrush" Value="#F9AC99" />
+            <Setter Property="BorderThickness" Value="2" />
+            <Style.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="12"></Setter>
+                </Style>
+            </Style.Resources>
+        </Style>
+
+        <Style  x:Key="label" TargetType="{x:Type Label}">
+            <Setter Property="Foreground" Value="#F15A29" />
+            <Setter Property="FontFamily" Value="Arial Rounded MT Bold" />
+
+            <Style.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="12"></Setter>
+                </Style>
+            </Style.Resources>
+        </Style>
+
+        <Style  x:Key="button" TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="{x:Null}" />
+
+            <Setter Property="BorderThickness" Value="0" />
+            <Style.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="100"></Setter>
+                </Style>
+            </Style.Resources>
+        </Style>
+
+        <Style  x:Key="radiobutton" TargetType="{x:Type RadioButton}">
+            <Setter Property="Background" Value="#EAE4DF" />
+            <Setter Property="BorderBrush" Value="#F9AC99" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Foreground" Value="#F15A29" />
+            <Setter Property="FontFamily" Value="Arial Rounded MT Bold" />
+
+        </Style>
+
+        <Style  x:Key="combobox" TargetType="{x:Type ComboBox}">
+
+            <Setter Property="Background" Value="#EAE4DF" />
+            <Setter Property="BorderBrush" Value="#F9AC99" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Foreground" Value="#F15A29" />
+            <Setter Property="FontFamily" Value="Arial Rounded MT Bold" />
+            <Style.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="12"></Setter>
+                </Style>
+            </Style.Resources>
+        </Style>
+
+        <Style  x:Key="DatePicker" TargetType="{x:Type DatePicker}">
+
+            <Setter Property="Background" Value="#FFF1E2"/>
+            <Setter Property="BorderBrush" Value="#F9AC99"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Style.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="12"></Setter>
+                </Style>
+            </Style.Resources>
+        </Style>
+    </Window.Resources>
+
+
+    <Grid Background="#FFF1E2">
+
+        <StackPanel Background="#FDE5DF" HorizontalAlignment="Left" Height="100" Margin="0,106,0,0" VerticalAlignment="Top" Width="792"/>
+
+        <StackPanel Orientation="Horizontal" Height="35" VerticalAlignment="Top">
+            <Button Content="Listar Ventas" Click="ListarVentasClick"></Button>
+            <Button Content="Registrar Venta" Click="RegistrarVentasClick"></Button>
+
+            <Button Content="Menu Pricipal" Click="MenuPrincipalClick"></Button>
+        </StackPanel>
+
+        <ComboBox BorderThickness="2"   Name="comboVendedor" HorizontalAlignment="Left" Margin="18,64,0,0" VerticalAlignment="Top" Width="120" SelectedValuePath="Tag"/>
+        <Label Style="{StaticResource label}" Content="Seleccione Vendedor" HorizontalAlignment="Left" Margin="14,38,0,0" VerticalAlignment="Top"/>
+        <DatePicker Style="{StaticResource DatePicker}" SelectedDate="{Binding Path=FechaCompra, StringFormat=YYYY-MM-DD}" Name="dtpFechaVenta" HorizontalAlignment="Left" Margin="18,144,0,0" VerticalAlignment="Top" Height="51" Width="161"/>
+        <Label Style="{StaticResource label}" Content="Fecha de Venta" HorizontalAlignment="Left" Margin="18,113,0,0" VerticalAlignment="Top"/>
+        <Label Style="{StaticResource label}" Content="Producto" HorizontalAlignment="Left" Margin="321,42,0,0" VerticalAlignment="Top"/>
+        <ComboBox Name="comboProducto" HorizontalAlignment="Left" Margin="323,68,0,0" VerticalAlignment="Top" Width="120" SelectedValuePath="Tag"/>
+        <TextBox Style="{StaticResource textbox}" Name="txtNroBoleta" HorizontalAlignment="Left" Height="23" Margin="173,66,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox Style="{StaticResource textbox2}" Name="txtCantidadProducto" HorizontalAlignment="Left" Height="23" Margin="266,152,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="155"/>
+        <Label Style="{StaticResource label}" Content="Unidades Contenidas" HorizontalAlignment="Left" Margin="472,160,0,0" VerticalAlignment="Top"/>
+        <Label Style="{StaticResource label}" Content="Cantidad de Producto Vendida" HorizontalAlignment="Left" Margin="259,121,0,0" VerticalAlignment="Top"/>
+        <Label Style="{StaticResource label}" Content="Total Producto" HorizontalAlignment="Left" Margin="259,198,0,0" VerticalAlignment="Top"/>
+        <TextBox Style="{StaticResource textbox}" Name="txtTotalPorProducto" HorizontalAlignment="Left" Height="23" Margin="266,229,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+
+
+
+        <Button Style="{StaticResource button}"   Foreground="White"  HorizontalAlignment="Left" Margin="509,218,0,0" VerticalAlignment="Top" Width="120" Height="70" Click="Button_Click">
+            <StackPanel>
+                <Image Source="/Imagenes/Guardar_RC.png" RenderTransformOrigin="0.5,0.5" Height="70" Width="119" >
+                    <Image.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="0.875"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Image.RenderTransform>
+                </Image>
+            </StackPanel>
+
+        </Button>
+        <Label Style="{StaticResource label}" Content="N° Boleta" HorizontalAlignment="Left" Margin="173,40,0,0" VerticalAlignment="Top"/>
+        <Label Style="{StaticResource label}" Name="lbloldValue" Content="Label" HorizontalAlignment="Left" Margin="672,213,0,0" VerticalAlignment="Top"/>
+        <Label Style="{StaticResource label}" Content="Total Boleta" HorizontalAlignment="Left" Margin="18,206,0,0" VerticalAlignment="Top"/>
+        <TextBox Style="{StaticResource textbox}" x:Name="txtTotalNeto" HorizontalAlignment="Left" Height="27" Margin="18,231,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="145"/>
+        <Button  Style="{StaticResource button}" HorizontalAlignment="Left" Margin="508,272,0,0" VerticalAlignment="Top" Width="120" Height="110" Click="Iva_Click">
+            <StackPanel>
+                <Image Source="/Imagenes/IVAGuardar.png" />
+            </StackPanel>
+        </Button>
+        <RadioButton Style="{StaticResource radiobutton}" Name="rbdEfectivo" GroupName="rbtTipoVenta" Content="Efectivo" HorizontalAlignment="Left" Margin="585,95,0,0" VerticalAlignment="Top"/>
+        <RadioButton Style="{StaticResource radiobutton}" Name="rbdTarjeta" GroupName="rbtTipoVenta" Content="Tarjeta" HorizontalAlignment="Left" Margin="496,95,0,0" VerticalAlignment="Top"/>
+        <Label Style="{StaticResource label}" Content="Tipo de Venta" HorizontalAlignment="Left" Margin="494,64,0,0" VerticalAlignment="Top"/>
+        <RadioButton Style="{StaticResource radiobutton}" x:Name="rbdUnidad" GroupName="rbdVenta" Content="Unidad" HorizontalAlignment="Left" Margin="496,140,0,0" VerticalAlignment="Top"/>
+        <RadioButton Style="{StaticResource radiobutton}" x:Name="rbdPorMayor" GroupName="rbdVenta" Content="Por Mayor" HorizontalAlignment="Left" Margin="595,140,0,0" VerticalAlignment="Top"/>
+        <TextBox Style="{StaticResource textbox2}" Name="txtUnidadesPorMayor" HorizontalAlignment="Left" Height="27" Margin="599,160,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="145"/>
+
+    </Grid>
+</Window>

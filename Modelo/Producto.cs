@@ -14,6 +14,7 @@ namespace Modelo
         public int Cantidad { get; set; }
         public int id_Categoria { get; set; }
         public int Precio { get; set; }
+        public byte[] QRProducto { get; set; }
 
         public Producto()
         {
@@ -26,6 +27,7 @@ namespace Modelo
             Cantidad = 0;
             id_Categoria = 0;
             Precio = 0;
+            byte[] QRProducto = new byte[0];
         }
     }
 }

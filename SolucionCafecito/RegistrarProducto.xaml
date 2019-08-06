@@ -20,5 +20,6 @@
         <ComboBox  Name="comboCategoria"  HorizontalAlignment="Left" Margin="211,224,0,0" VerticalAlignment="Top" Width="120" SelectedValuePath="Tag"/>
         <TextBox Name="txtPrecioVenta" HorizontalAlignment="Left" Height="23" Margin="209,297,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
         <Button Content="Registrar Producto" HorizontalAlignment="Left" Margin="547,293,0,0" VerticalAlignment="Top" Width="113" Height="56" Click="Button_Click"/>
+        <Image Name="imagenQR" HorizontalAlignment="Left" Height="100" Margin="396,283,0,0" VerticalAlignment="Top" Width="100"/>
     </Grid>
 </Window>

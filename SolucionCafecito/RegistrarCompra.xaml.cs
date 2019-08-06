@@ -29,6 +29,7 @@ namespace SolucionCafecito
         Modelo.ModeloProducto productos = new Modelo.ModeloProducto();
         Modelo.ModeloCompra compras = new Modelo.ModeloCompra();
         Modelo.ModeloDetalleCompra detalleCompra = new Modelo.ModeloDetalleCompra();
+        
 
         Modelo.Compra compra = new Modelo.Compra();
         Modelo.DetalleCompra dc = new Modelo.DetalleCompra();
@@ -79,9 +80,13 @@ namespace SolucionCafecito
                 
             }
 
-            txtUnidadesContenidas.IsEnabled = false;
+            
             lbloldValue.Content = 0;
             oldvalueforTotal = 0;
+            txtUnidadesPorMayor.IsEnabled = false;
+            lbloldValue.Visibility = Visibility.Hidden;
+             
+           
         }
 
         private void ListarProveedoresClick(object sender, RoutedEventArgs e)
@@ -109,6 +114,11 @@ namespace SolucionCafecito
             ventana5 = new RegistrarCompra();
             ventana5.Show();
             this.Close();
+        }
+
+        private void PorMayorChecked(object sender, RoutedEventArgs e)
+        {
+            txtUnidadesPorMayor.IsEnabled=Convert.ToBoolean(rbdPorMayor.IsChecked);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -152,10 +162,10 @@ namespace SolucionCafecito
 
             if (rbdPorMayor.IsChecked == true)
             {
-                txtUnidadesContenidas.IsEnabled = true;
+                
                 totalporproducto = double.Parse(txtTotalPorProducto.Text);
                 cantidadComprada = double.Parse(txtCantidadProducto.Text);
-                unidadescontenidas = double.Parse(txtUnidadesContenidas.Text);
+                unidadescontenidas = double.Parse(txtUnidadesPorMayor.Text);
                 precioUnitarioUnidad = (totalporproducto / (cantidadComprada*unidadescontenidas));
                 txtValorUnitario.Text = precioUnitarioUnidad.ToString();
                 dc.valorUnitario = precioUnitarioUnidad;
@@ -183,6 +193,17 @@ namespace SolucionCafecito
                 {
                     if (detalleCompra.IngresarDetalleCompra(dc))
                     {
+                    //Control de stock, aumenta cantidad de producto
+                    Controlador.Producto productocontrolador= productos.BuscarProducto(dc.Nombre_Producto);
+                    Modelo.Producto cantidadProducto= new Modelo.Producto();
+                    cantidadProducto.Cantidad= Convert.ToInt32(productocontrolador.Cantidad);
+                    cantidadProducto.Nombre_Producto = productocontrolador.Nombre_Producto;
+                    cantidadProducto.id_Categoria = Convert.ToInt32(productocontrolador.id_Categoria);
+                    cantidadProducto.Precio = Convert.ToInt32(productocontrolador.Precio);
+                    cantidadProducto.Cantidad=cantidadProducto.Cantidad + Convert.ToInt32(cantidadComprada);
+                    productos.ModificarProducto(cantidadProducto);
+
+                    //Setea campos a blanco y añade valor a label
                     txtCantidadProducto.Text = "";
                     txtComentario.Text = "";
                     lbloldValue.Content = txtTotalNeto.Text.ToString();
