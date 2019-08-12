@@ -6,22 +6,73 @@
         xmlns:local="clr-namespace:SolucionCafecito"
         mc:Ignorable="d"
         Title="RegistroProveedor" Height="450" Width="800">
-    <Grid>
+
+    <Window.Resources>
+    <Style  x:Key="button" TargetType="{x:Type Button}">
+        <Setter Property="Background" Value="{x:Null}" />
+
+        <Setter Property="BorderThickness" Value="0" />
+        <Style.Resources>
+            <Style TargetType="{x:Type Border}">
+                <Setter Property="CornerRadius" Value="100"></Setter>
+            </Style>
+        </Style.Resources>
+    </Style>
+        <Style  x:Key="textbox" TargetType="{x:Type TextBox}">
+            <Setter Property="Background" Value="#FDE5DF" />
+            <Setter Property="BorderBrush" Value="#F9AC99" />
+            <Setter Property="BorderThickness" Value="2" />
+            <Style.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="12"></Setter>
+                </Style>
+            </Style.Resources>
+        </Style>
+
+        <Style  x:Key="label" TargetType="{x:Type TextBlock}">
+            <Setter Property="Foreground" Value="#F15A29" />
+            <Setter Property="FontFamily" Value="Arial Rounded MT Bold" />
+
+            <Style.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="12"></Setter>
+                </Style>
+            </Style.Resources>
+        </Style>
+    </Window.Resources>
+    <Grid Background="#FFF1E2">
         <StackPanel Orientation="Horizontal" Height="35" VerticalAlignment="Top">
-            <Button Content="Listar Proveedores" Click="ListarProveedoresClick"></Button>
-            <Button Content="Registrar Proveedores" Click="RegistrarProveedoresClick"></Button>
-            <Button Content="Menu Pricipal" Click="MenuPrincipalClick"></Button>
+            <Button  Click="ListarProveedoresClick" Style="{StaticResource button}">
+                <StackPanel>
+                    <Image Source="/Imagenes/ListaProve_RC.png" />
+                </StackPanel>
+            </Button>
+            <Button  Click="RegistrarProveedoresClick" Style="{StaticResource button}">
+                <StackPanel>
+                    <Image Source="/Imagenes/RegistrarProve_RC.png" />
+                </StackPanel>
+            </Button>
+            <Button Click="RegistrarCompraClick" Style="{StaticResource button}">
+                <StackPanel>
+                    <Image Source="/Imagenes/RegistrarCompra_RC.png" />
+                </StackPanel>
+            </Button>
+            <Button  Click="MenuPrincipalClick" Style="{StaticResource button}">
+                <StackPanel>
+                    <Image Source="/Imagenes/MenuPrincipal_RC.png" />
+                </StackPanel>
+            </Button>
         </StackPanel>
 
-        <TextBox x:Name="txtNombreProveedor" HorizontalAlignment="Left" Height="31" Margin="242,121,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="157"/>
-        <TextBox x:Name="txtRutProveedor" HorizontalAlignment="Left" Height="31" Margin="242,190,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="157"/>
-        <TextBox x:Name="txtNombreContacto" HorizontalAlignment="Left" Height="32" Margin="242,260,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="157"/>
-        <TextBox x:Name="txtTelefonoContacto" HorizontalAlignment="Left" Height="32" Margin="242,328,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="157"/>
-        <TextBlock HorizontalAlignment="Left" Margin="44,122,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="31" Width="154" FontSize="14"><Run Text="Nombre Prove"/><Run Text="e"/><Run Text="do"/><Run Text="r"/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Margin="44,190,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="31" Width="154" Text="Rut Proveedor" FontSize="14"/>
-        <TextBlock HorizontalAlignment="Left" Margin="44,260,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30" Width="154" Text="Nombre Contacto" FontSize="14"/>
-        <TextBlock HorizontalAlignment="Left" Margin="44,329,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="31" Width="154" Text="Teléfono Contacto" FontSize="14"/>
-        <TextBlock HorizontalAlignment="Left" Margin="44,42,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="43" Width="381" FontSize="16" Text="Registro Proveedores"/>
+        <TextBox Style="{StaticResource textbox}" x:Name="txtNombreProveedor" HorizontalAlignment="Left" Height="31" Margin="242,121,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="157"/>
+        <TextBox Style="{StaticResource textbox}"  x:Name="txtRutProveedor" HorizontalAlignment="Left" Height="31" Margin="242,190,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="157"/>
+        <TextBox Style="{StaticResource textbox}" x:Name="txtNombreContacto" HorizontalAlignment="Left" Height="32" Margin="242,260,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="157"/>
+        <TextBox Style="{StaticResource textbox}" x:Name="txtTelefonoContacto" HorizontalAlignment="Left" Height="32" Margin="242,328,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="157"/>
+        <TextBlock Style="{StaticResource label}" HorizontalAlignment="Left" Margin="44,122,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="31" Width="154" FontSize="14"><Run Text="Nombre Prove"/><Run Text="e"/><Run Text="do"/><Run Text="r"/></TextBlock>
+        <TextBlock Style="{StaticResource label}" HorizontalAlignment="Left" Margin="44,190,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="31" Width="154" Text="Rut Proveedor" FontSize="14"/>
+        <TextBlock Style="{StaticResource label}" HorizontalAlignment="Left" Margin="44,260,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30" Width="154" Text="Nombre Contacto" FontSize="14"/>
+        <TextBlock Style="{StaticResource label}" HorizontalAlignment="Left" Margin="44,329,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="31" Width="154" Text="Teléfono Contacto" FontSize="14"/>
+        <TextBlock Style="{StaticResource label}" HorizontalAlignment="Left" Margin="44,42,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="43" Width="381" FontSize="16" Text="Registro Proveedores"/>
         <Button x:Name="btnAgregarProveedor" Content="Agregar Proveedor" HorizontalAlignment="Left" Margin="498,290,0,0" VerticalAlignment="Top" Width="206" Height="63" Click="btnAgregarProveedor_Click"/>
 
     </Grid>

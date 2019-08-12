@@ -6,7 +6,21 @@
         xmlns:local="clr-namespace:SolucionCafecito"
         mc:Ignorable="d"
         Title="ListarProveedores" Height="450" Width="800">
-    <Grid>
+
+    <Window.Resources>
+        <Style  x:Key="button" TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="{x:Null}" />
+
+            <Setter Property="BorderThickness" Value="0" />
+            <Style.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="100"></Setter>
+                </Style>
+            </Style.Resources>
+        </Style>
+    </Window.Resources>
+
+    <Grid Background="#FFF1E2">
         <DataGrid Name="ProveedoresGrid" HorizontalAlignment="Left" AutoGenerateColumns="False" Height="185" Margin="35,82,0,0" VerticalAlignment="Top" Width="673">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding id_Proveedor}" Header="ID Proveedor"></DataGridTextColumn>
@@ -26,10 +40,26 @@
             
         </DataGrid>
         <StackPanel Orientation="Horizontal" Height="35" VerticalAlignment="Top">
-            <Button Content="Listar Proveedores" Click="ListarProveedoresClick"></Button>
-            <Button Content="Registrar Proveedores" Click="RegistrarProveedoresClick"></Button>
-            <Button Content="Registrar Compra" Click="RegistrarCompraClick"></Button>
-            <Button Content="Menu Pricipal" Click="MenuPrincipalClick"></Button>
+            <Button  Click="ListarProveedoresClick" Style="{StaticResource button}">
+                <StackPanel>
+                    <Image Source="/Imagenes/ListaProve_RC.png" />
+                </StackPanel>
+            </Button>
+            <Button  Click="RegistrarProveedoresClick" Style="{StaticResource button}">
+                <StackPanel>
+                    <Image Source="/Imagenes/RegistrarProve_RC.png" />
+                </StackPanel>
+            </Button>
+            <Button Click="RegistrarCompraClick" Style="{StaticResource button}">
+                <StackPanel>
+                    <Image Source="/Imagenes/RegistrarCompra_RC.png" />
+                </StackPanel>
+            </Button>
+            <Button  Click="MenuPrincipalClick" Style="{StaticResource button}">
+                <StackPanel>
+                    <Image Source="/Imagenes/MenuPrincipal_RC.png" />
+                </StackPanel>
+            </Button>
         </StackPanel>
 
 

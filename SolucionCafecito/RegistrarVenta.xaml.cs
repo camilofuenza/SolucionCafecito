@@ -73,6 +73,10 @@ namespace SolucionCafecito
                 comboProducto.Items.Add(item2);
 
             }
+            lbloldValue.Content = 0;
+            oldvalueforTotal = 0;
+            txtUnidadesPorMayor.IsEnabled = false;
+            lbloldValue.Visibility = Visibility.Hidden;
 
         }
         private void RegistrarVentasClick(object sender, RoutedEventArgs e)

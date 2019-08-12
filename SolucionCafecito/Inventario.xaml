@@ -23,7 +23,8 @@
             <Setter Property="BorderBrush" Value="Green"/>
             <Setter Property="RowBackground" Value="#FFF1E2"/>
             <Setter Property="AlternatingRowBackground" Value="#FDE5DF"/>
-            
+            <Setter Property="Foreground" Value="#F15A29" />
+            <Setter Property="FontFamily" Value="Arial Rounded MT Bold" />
        
             <Style.Resources>
                 <Style TargetType="{x:Type Border}">
@@ -32,7 +33,7 @@
             </Style.Resources>
         </Style>
     </Window.Resources>
-    <Grid>
+    <Grid Background="#FFF1E2">
         <StackPanel Orientation="Horizontal" Height="35" VerticalAlignment="Top">
             <Button Content="registrar producto" Click="RegistrarProductoClick" >
               
@@ -52,24 +53,25 @@
                 <DataGridTextColumn Binding="{Binding Cantidad}" Header="Stock">
                     <DataGridTextColumn.ElementStyle>
                         <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="TextAlignment" Value="Center"></Setter>
                             <Style.Triggers>
                                 <Trigger Property="Text" Value="0">
-                                    <Setter Property="Background" Value="Red"/>
+                                    <Setter Property="Background" Value="#F08080"/>
                                 </Trigger>
                                 <Trigger Property="Text" Value="1">
-                                    <Setter Property="Background" Value="Red"/>
+                                    <Setter Property="Background" Value="#F08080"/>
                                 </Trigger>
                                 <Trigger Property="Text" Value="2">
-                                    <Setter Property="Background" Value="Red"/>
+                                    <Setter Property="Background" Value="#F08080"/>
                                 </Trigger>
                                 <Trigger Property="Text" Value="3">
-                                    <Setter Property="Background" Value="Red"/>
+                                    <Setter Property="Background" Value="#F08080"/>
                                 </Trigger>
                                 <Trigger Property="Text" Value="4">
-                                    <Setter Property="Background" Value="Red"/>
+                                    <Setter Property="Background" Value="#F08080"/>
                                 </Trigger>
                                 <Trigger Property="Text" Value="5">
-                                    <Setter Property="Background" Value="Red"/>
+                                    <Setter Property="Background" Value="#F08080"/>
                                 </Trigger>
                             </Style.Triggers>
                         </Style>

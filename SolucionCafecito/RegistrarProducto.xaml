@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:SolucionCafecito"
         mc:Ignorable="d"
         Title="RegistrarProducto" Height="450" Width="800">
-    <Grid>
+    <Grid Background="#FFF1E2">
         <StackPanel Orientation="Horizontal" Height="35" VerticalAlignment="Top">
             <Button Content="Registrar Producto" Click="RegistrarProductoClick"></Button>
             <Button Content="Inventario" Click="inventarioClick"></Button>

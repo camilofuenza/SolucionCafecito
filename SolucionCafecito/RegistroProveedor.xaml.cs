@@ -24,6 +24,7 @@ namespace SolucionCafecito
         RegistroProveedor ventana3;
         ListarProveedores ventana2;
         MainWindow ventana1;
+        RegistrarCompra ventana4;
 
 
         public RegistroProveedor()
@@ -62,6 +63,12 @@ namespace SolucionCafecito
         {
             ventana3 = new RegistroProveedor();
             ventana3.Show();
+            this.Close();
+        }
+        private void RegistrarCompraClick(object sender, RoutedEventArgs e)
+        {
+            ventana4 = new RegistrarCompra();
+            ventana4.Show();
             this.Close();
         }
         private void MenuPrincipalClick(object sender, RoutedEventArgs e)

@@ -7,7 +7,15 @@
         mc:Ignorable="d"
         Title="RegistrarCompra" Height="460" Width="800">
 
+    
+    
+    
+
     <Window.Resources>
+        
+            
+       
+
         <Style  x:Key="textbox" TargetType="{x:Type TextBox}">
             <Setter Property="Background" Value="#FDE5DF" />
             <Setter Property="BorderBrush" Value="#F9AC99" />
@@ -61,6 +69,8 @@
             
         </Style>
 
+      
+        
         <Style  x:Key="combobox" TargetType="{x:Type ComboBox}">
             
             <Setter Property="Background" Value="#EAE4DF" />
@@ -68,11 +78,11 @@
             <Setter Property="BorderThickness" Value="1" />
             <Setter Property="Foreground" Value="#F15A29" />
             <Setter Property="FontFamily" Value="Arial Rounded MT Bold" />
-            <Style.Resources>
-                <Style TargetType="{x:Type Border}">
-                    <Setter Property="CornerRadius" Value="12"></Setter>
-                </Style>
-            </Style.Resources>
+    
+    
+            
+
+           
         </Style>
 
         <Style  x:Key="DatePicker" TargetType="{x:Type DatePicker}">
@@ -118,7 +128,7 @@
         </StackPanel>
 
 
-        <ComboBox Background="#EAE4DF" Style="{DynamicResource combobox}" BorderThickness="2"   Name="comboProveedor" HorizontalAlignment="Left" Margin="18,64,0,0" VerticalAlignment="Top" Width="120" SelectedValuePath="Tag">
+        <ComboBox   Background="#EAE4DF" Style="{DynamicResource combobox}" BorderThickness="2"   Name="comboProveedor" HorizontalAlignment="Left" Margin="18,64,0,0" VerticalAlignment="Top" Width="120" SelectedValuePath="Tag">
             
             <ComboBox.ItemContainerStyle>
                 <Style TargetType="ComboBoxItem">

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:SolucionCafecito"
         mc:Ignorable="d"
         Title="ListaProductosProveedor" Height="450" Width="800">
-    <Grid>
+    <Grid Background="#FFF1E2">
 
         <DataGrid Name="ProductoProveedorGrid" HorizontalAlignment="Left" AutoGenerateColumns="False" Height="185" Margin="35,82,0,0" VerticalAlignment="Top" Width="595">
             <DataGrid.Columns>

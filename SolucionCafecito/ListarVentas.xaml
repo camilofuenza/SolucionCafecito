@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:SolucionCafecito"
         mc:Ignorable="d"
         Title="ListarVentas" Height="450" Width="800">
-    <Grid>
+    <Grid Background="#FFF1E2">
         <DataGrid Name="VentasGrid" HorizontalAlignment="Left" AutoGenerateColumns="False" Height="185" Margin="35,82,0,0" VerticalAlignment="Top" Width="673">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Nro_Boleta}" Header="Nro Boleta"></DataGridTextColumn>
