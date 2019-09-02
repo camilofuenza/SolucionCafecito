@@ -5,18 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SolucionCafecito"
         mc:Ignorable="d"
-        Title="Inventario" Height="450" Width="800">
+        Title="Inventario" Height="510" Width="{x:Static SystemParameters.PrimaryScreenWidth}">
     <Window.Resources>
-    <Style  x:Key="button" TargetType="{x:Type Button}">
-        <Setter Property="Background" Value="{x:Null}" />
+        <Style  x:Key="button" TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="{x:Null}" />
 
-        <Setter Property="BorderThickness" Value="0" />
-        <Style.Resources>
-            <Style TargetType="{x:Type Border}">
-                <Setter Property="CornerRadius" Value="100"></Setter>
-            </Style>
-        </Style.Resources>
-    </Style>
+            <Setter Property="BorderThickness" Value="0" />
+            <Style.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="100"></Setter>
+                </Style>
+            </Style.Resources>
+        </Style>
 
         <Style  x:Key="datraGrid" TargetType="{x:Type DataGrid}">
             <Setter Property="BorderThickness" Value="0"/>
@@ -25,7 +25,7 @@
             <Setter Property="AlternatingRowBackground" Value="#FDE5DF"/>
             <Setter Property="Foreground" Value="#F15A29" />
             <Setter Property="FontFamily" Value="Arial Rounded MT Bold" />
-       
+
             <Style.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="80"></Setter>
@@ -35,21 +35,23 @@
     </Window.Resources>
     <Grid Background="#FFF1E2">
         <StackPanel Orientation="Horizontal" Height="35" VerticalAlignment="Top">
-            <Button Content="registrar producto" Click="RegistrarProductoClick" >
-              
+            <Button  Style="{StaticResource button}" Click="RegistrarProductoClick" >
+                <StackPanel>
+                    <Image Source="/Imagenes/registrar producto.png" />
+                </StackPanel>
             </Button>
             <Button  Click="MenuPrincipalClick" Style="{StaticResource button}">
                 <StackPanel>
                     <Image Source="/Imagenes/MenuPrincipal_RC.png" />
                 </StackPanel>
             </Button>
-            
+
         </StackPanel>
 
-        <DataGrid Style="{StaticResource datraGrid}" EnableRowVirtualization="False" GridLinesVisibility="None" BorderThickness="0" BorderBrush="Green" RowBackground="#FFF1E2" AlternatingRowBackground="#FDE5DF"    Name="ProductosGrid" HorizontalAlignment="Left" AutoGenerateColumns="False" Height="185" Margin="35,82,0,0" VerticalAlignment="Top" Width="595" LoadingRow="ProductosGrid_LoadingRow">
+        <DataGrid Style="{StaticResource datraGrid}" EnableRowVirtualization="False" GridLinesVisibility="None" BorderThickness="0" BorderBrush="Green" RowBackground="#FFF1E2" AlternatingRowBackground="#FDE5DF"    Name="ProductosGrid" HorizontalAlignment="Left" AutoGenerateColumns="False" Height="377" Margin="102,66,0,0" VerticalAlignment="Top" Width="1147" LoadingRow="ProductosGrid_LoadingRow">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Nombre_Producto}" Header="Nombre Producto"></DataGridTextColumn>
-                
+
                 <DataGridTextColumn Binding="{Binding Cantidad}" Header="Stock">
                     <DataGridTextColumn.ElementStyle>
                         <Style TargetType="{x:Type TextBlock}">
@@ -57,21 +59,27 @@
                             <Style.Triggers>
                                 <Trigger Property="Text" Value="0">
                                     <Setter Property="Background" Value="#F08080"/>
+                                    <Setter Property="Foreground" Value="White"/>
                                 </Trigger>
                                 <Trigger Property="Text" Value="1">
                                     <Setter Property="Background" Value="#F08080"/>
+                                    <Setter Property="Foreground" Value="White"/>
                                 </Trigger>
                                 <Trigger Property="Text" Value="2">
                                     <Setter Property="Background" Value="#F08080"/>
+                                    <Setter Property="Foreground" Value="White"/>
                                 </Trigger>
                                 <Trigger Property="Text" Value="3">
                                     <Setter Property="Background" Value="#F08080"/>
+                                    <Setter Property="Foreground" Value="White"/>
                                 </Trigger>
                                 <Trigger Property="Text" Value="4">
                                     <Setter Property="Background" Value="#F08080"/>
+                                    <Setter Property="Foreground" Value="White"/>
                                 </Trigger>
                                 <Trigger Property="Text" Value="5">
                                     <Setter Property="Background" Value="#F08080"/>
+                                    <Setter Property="Foreground" Value="White"/>
                                 </Trigger>
                             </Style.Triggers>
                         </Style>
@@ -80,10 +88,10 @@
                 <DataGridTextColumn Binding="{Binding Nombre_Categoria}" Header="Categoria"></DataGridTextColumn>
                 <DataGridTextColumn Binding="{Binding Precio}" Header="Precio Venta"></DataGridTextColumn>
                 <DataGridTextColumn Binding="{Binding PrecioCompra}" Header="Precio Compra"></DataGridTextColumn>
-                
+
 
             </DataGrid.Columns>
-            
+
         </DataGrid>
     </Grid>
 </Window>

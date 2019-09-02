@@ -16,6 +16,7 @@ namespace Modelo
         public string Comentario { get; set; }
         public int id_detalleCompra { get; set; }
         public double valorUnitario { get; set; }
+        public string tipoCompra { get; set; }
 
         public DetalleCompra()
         {
@@ -32,6 +33,7 @@ namespace Modelo
             Validacion = string.Empty;
             Comentario = string.Empty;
             valorUnitario = 0.0;
+            tipoCompra = string.Empty;
         }
     }
 }

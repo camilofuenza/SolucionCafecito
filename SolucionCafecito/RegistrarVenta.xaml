@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SolucionCafecito"
         mc:Ignorable="d"
-        Title="RegistrarVenta" Height="450" Width="800">
+        Title="RegistrarVenta" Height="510" Width="{x:Static SystemParameters.PrimaryScreenWidth}">
 
 
 
@@ -93,31 +93,43 @@
 
     <Grid Background="#FFF1E2">
 
-        <StackPanel Background="#FDE5DF" HorizontalAlignment="Left" Height="100" Margin="0,106,0,0" VerticalAlignment="Top" Width="792"/>
+        <StackPanel Background="#FDE5DF" HorizontalAlignment="Left" Height="100" Margin="0,138,0,0" VerticalAlignment="Top" Width="1358"/>
 
         <StackPanel Orientation="Horizontal" Height="35" VerticalAlignment="Top">
-            <Button Content="Listar Ventas" Click="ListarVentasClick"></Button>
-            <Button Content="Registrar Venta" Click="RegistrarVentasClick"></Button>
+            <Button Style="{StaticResource button}" Click="ListarVentasClick">
+                <StackPanel>
+                    <Image Source="/Imagenes/listar ventas.png" />
+                </StackPanel>
+            </Button>
+            <Button Style="{StaticResource button}" Click="RegistrarVentasClick">
+                <StackPanel>
+                    <Image Source="/Imagenes/registrar ventas.png" />
+                </StackPanel>
+            </Button>
 
-            <Button Content="Menu Pricipal" Click="MenuPrincipalClick"></Button>
+            <Button Style="{StaticResource button}" Click="MenuPrincipalClick">
+                <StackPanel>
+                    <Image Source="/Imagenes/MenuPrincipal_RC.png" />
+                </StackPanel>
+            </Button>
         </StackPanel>
 
-        <ComboBox BorderThickness="2"   Name="comboVendedor" HorizontalAlignment="Left" Margin="18,64,0,0" VerticalAlignment="Top" Width="120" SelectedValuePath="Tag"/>
-        <Label Style="{StaticResource label}" Content="Seleccione Vendedor" HorizontalAlignment="Left" Margin="14,38,0,0" VerticalAlignment="Top"/>
-        <DatePicker Style="{StaticResource DatePicker}" SelectedDate="{Binding Path=FechaCompra, StringFormat=YYYY-MM-DD}" Name="dtpFechaVenta" HorizontalAlignment="Left" Margin="18,144,0,0" VerticalAlignment="Top" Height="51" Width="161"/>
-        <Label Style="{StaticResource label}" Content="Fecha de Venta" HorizontalAlignment="Left" Margin="18,113,0,0" VerticalAlignment="Top"/>
-        <Label Style="{StaticResource label}" Content="Producto" HorizontalAlignment="Left" Margin="321,42,0,0" VerticalAlignment="Top"/>
-        <ComboBox Name="comboProducto" HorizontalAlignment="Left" Margin="323,68,0,0" VerticalAlignment="Top" Width="120" SelectedValuePath="Tag"/>
-        <TextBox Style="{StaticResource textbox}" Name="txtNroBoleta" HorizontalAlignment="Left" Height="23" Margin="173,66,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <TextBox Style="{StaticResource textbox2}" Name="txtCantidadProducto" HorizontalAlignment="Left" Height="23" Margin="266,152,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="155"/>
-        <Label Style="{StaticResource label}" Content="Unidades Contenidas" HorizontalAlignment="Left" Margin="472,160,0,0" VerticalAlignment="Top"/>
-        <Label Style="{StaticResource label}" Content="Cantidad de Producto Vendida" HorizontalAlignment="Left" Margin="259,121,0,0" VerticalAlignment="Top"/>
-        <Label Style="{StaticResource label}" Content="Total Producto" HorizontalAlignment="Left" Margin="259,198,0,0" VerticalAlignment="Top"/>
-        <TextBox Style="{StaticResource textbox}" Name="txtTotalPorProducto" HorizontalAlignment="Left" Height="23" Margin="266,229,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <ComboBox BorderThickness="2"   Name="comboVendedor" HorizontalAlignment="Left" Margin="312,96,0,0" VerticalAlignment="Top" Width="120" SelectedValuePath="Tag"/>
+        <Label Style="{StaticResource label}" Content="Seleccione Vendedor" HorizontalAlignment="Left" Margin="308,70,0,0" VerticalAlignment="Top"/>
+        <DatePicker Style="{StaticResource DatePicker}" SelectedDate="{Binding Path=FechaCompra, StringFormat=YYYY-MM-DD}" Name="dtpFechaVenta" HorizontalAlignment="Left" Margin="312,176,0,0" VerticalAlignment="Top" Height="51" Width="161"/>
+        <Label Style="{StaticResource label}" Content="Fecha de Venta" HorizontalAlignment="Left" Margin="312,145,0,0" VerticalAlignment="Top"/>
+        <Label Style="{StaticResource label}" Content="Producto" HorizontalAlignment="Left" Margin="615,74,0,0" VerticalAlignment="Top"/>
+        <ComboBox Name="comboProducto" HorizontalAlignment="Left" Margin="617,100,0,0" VerticalAlignment="Top" Width="120" SelectedValuePath="Tag"/>
+        <TextBox Style="{StaticResource textbox}" Name="txtNroBoleta" HorizontalAlignment="Left" Height="23" Margin="467,98,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox Style="{StaticResource textbox2}" Name="txtCantidadProducto" HorizontalAlignment="Left" Height="23" Margin="560,184,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="155"/>
+        <Label Style="{StaticResource label}" Content="Unidades Contenidas" HorizontalAlignment="Left" Margin="766,192,0,0" VerticalAlignment="Top"/>
+        <Label Style="{StaticResource label}" Content="Cantidad de Producto Vendida" HorizontalAlignment="Left" Margin="553,153,0,0" VerticalAlignment="Top"/>
+        <Label Style="{StaticResource label}" Content="Total Producto" HorizontalAlignment="Left" Margin="553,230,0,0" VerticalAlignment="Top"/>
+        <TextBox Style="{StaticResource textbox}" Name="txtTotalPorProducto" HorizontalAlignment="Left" Height="23" Margin="560,261,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
 
 
 
-        <Button Style="{StaticResource button}"   Foreground="White"  HorizontalAlignment="Left" Margin="509,218,0,0" VerticalAlignment="Top" Width="120" Height="70" Click="Button_Click">
+        <Button Style="{StaticResource button}"   Foreground="White"  HorizontalAlignment="Left" Margin="803,250,0,0" VerticalAlignment="Top" Width="120" Height="70" Click="Button_Click">
             <StackPanel>
                 <Image Source="/Imagenes/Guardar_RC.png" RenderTransformOrigin="0.5,0.5" Height="70" Width="119" >
                     <Image.RenderTransform>
@@ -132,21 +144,21 @@
             </StackPanel>
 
         </Button>
-        <Label Style="{StaticResource label}" Content="N° Boleta" HorizontalAlignment="Left" Margin="173,40,0,0" VerticalAlignment="Top"/>
-        <Label Style="{StaticResource label}" Name="lbloldValue" Content="Label" HorizontalAlignment="Left" Margin="672,213,0,0" VerticalAlignment="Top"/>
-        <Label Style="{StaticResource label}" Content="Total Boleta" HorizontalAlignment="Left" Margin="18,206,0,0" VerticalAlignment="Top"/>
-        <TextBox Style="{StaticResource textbox}" x:Name="txtTotalNeto" HorizontalAlignment="Left" Height="27" Margin="18,231,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="145"/>
-        <Button  Style="{StaticResource button}" HorizontalAlignment="Left" Margin="508,272,0,0" VerticalAlignment="Top" Width="120" Height="110" Click="Iva_Click">
+        <Label Style="{StaticResource label}" Content="N° Boleta" HorizontalAlignment="Left" Margin="467,72,0,0" VerticalAlignment="Top"/>
+        <Label Style="{StaticResource label}" Name="lbloldValue" Content="Label" HorizontalAlignment="Left" Margin="966,245,0,0" VerticalAlignment="Top"/>
+        <Label Style="{StaticResource label}" Content="Total Boleta" HorizontalAlignment="Left" Margin="312,238,0,0" VerticalAlignment="Top"/>
+        <TextBox Style="{StaticResource textbox}" x:Name="txtTotalNeto" HorizontalAlignment="Left" Height="27" Margin="312,263,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="145"/>
+        <Button  Style="{StaticResource button}" HorizontalAlignment="Left" Margin="802,304,0,0" VerticalAlignment="Top" Width="120" Height="110" Click="Iva_Click">
             <StackPanel>
-                <Image Source="/Imagenes/IVAGuardar.png" />
+                <Image Source="/Imagenes/guardar venta.png" />
             </StackPanel>
         </Button>
-        <RadioButton Style="{StaticResource radiobutton}" Name="rbdEfectivo" GroupName="rbtTipoVenta" Content="Efectivo" HorizontalAlignment="Left" Margin="585,95,0,0" VerticalAlignment="Top"/>
-        <RadioButton Style="{StaticResource radiobutton}" Name="rbdTarjeta" GroupName="rbtTipoVenta" Content="Tarjeta" HorizontalAlignment="Left" Margin="496,95,0,0" VerticalAlignment="Top"/>
-        <Label Style="{StaticResource label}" Content="Tipo de Venta" HorizontalAlignment="Left" Margin="494,64,0,0" VerticalAlignment="Top"/>
-        <RadioButton Style="{StaticResource radiobutton}" x:Name="rbdUnidad" GroupName="rbdVenta" Content="Unidad" HorizontalAlignment="Left" Margin="496,140,0,0" VerticalAlignment="Top"/>
-        <RadioButton Style="{StaticResource radiobutton}" x:Name="rbdPorMayor" GroupName="rbdVenta" Content="Por Mayor" HorizontalAlignment="Left" Margin="595,140,0,0" VerticalAlignment="Top"/>
-        <TextBox Style="{StaticResource textbox2}" Name="txtUnidadesPorMayor" HorizontalAlignment="Left" Height="27" Margin="599,160,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="145"/>
+        <RadioButton Style="{StaticResource radiobutton}" Name="rbdEfectivo" GroupName="rbtTipoVenta" Content="Efectivo" HorizontalAlignment="Left" Margin="879,127,0,0" VerticalAlignment="Top"/>
+        <RadioButton Style="{StaticResource radiobutton}" Name="rbdTarjeta" GroupName="rbtTipoVenta" Content="Tarjeta" HorizontalAlignment="Left" Margin="790,127,0,0" VerticalAlignment="Top"/>
+        <Label Style="{StaticResource label}" Content="Tipo de Venta" HorizontalAlignment="Left" Margin="788,96,0,0" VerticalAlignment="Top"/>
+        <RadioButton Style="{StaticResource radiobutton}" x:Name="rbdUnidad" GroupName="rbdVenta" Content="Unidad" HorizontalAlignment="Left" Margin="790,172,0,0" VerticalAlignment="Top"/>
+        <RadioButton Style="{StaticResource radiobutton}" x:Name="rbdPorMayor" GroupName="rbdVenta" Content="Por Mayor" HorizontalAlignment="Left" Margin="889,172,0,0" VerticalAlignment="Top"/>
+        <TextBox Style="{StaticResource textbox2}" Name="txtUnidadesPorMayor" HorizontalAlignment="Left" Height="27" Margin="893,192,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="145"/>
 
     </Grid>
 </Window>

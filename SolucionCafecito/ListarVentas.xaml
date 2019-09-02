@@ -5,9 +5,38 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SolucionCafecito"
         mc:Ignorable="d"
-        Title="ListarVentas" Height="450" Width="800">
+        Title="ListarVentas" Height="510" Width="{x:Static SystemParameters.PrimaryScreenWidth}">
+
+    <Window.Resources>
+        <Style  x:Key="button" TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="{x:Null}" />
+
+            <Setter Property="BorderThickness" Value="0" />
+            <Style.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="100"></Setter>
+                </Style>
+            </Style.Resources>
+        </Style>
+
+        <Style  x:Key="datraGrid" TargetType="{x:Type DataGrid}">
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="BorderBrush" Value="Green"/>
+            <Setter Property="RowBackground" Value="#FFF1E2"/>
+            <Setter Property="AlternatingRowBackground" Value="#FDE5DF"/>
+            <Setter Property="Foreground" Value="#F15A29" />
+            <Setter Property="FontFamily" Value="Arial Rounded MT Bold" />
+
+            <Style.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="80"></Setter>
+                </Style>
+            </Style.Resources>
+        </Style>
+    </Window.Resources>
+
     <Grid Background="#FFF1E2">
-        <DataGrid Name="VentasGrid" HorizontalAlignment="Left" AutoGenerateColumns="False" Height="185" Margin="35,82,0,0" VerticalAlignment="Top" Width="673">
+        <DataGrid Style="{StaticResource datraGrid}" Name="VentasGrid" HorizontalAlignment="Left" AutoGenerateColumns="False" Height="327" Margin="35,82,0,0" VerticalAlignment="Top" Width="1227">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Nro_Boleta}" Header="Nro Boleta"></DataGridTextColumn>
                 <DataGridTextColumn Binding="{Binding RutVendedor}" Header="Rut Vendedor"></DataGridTextColumn>
@@ -26,10 +55,22 @@
 
         </DataGrid>
         <StackPanel Orientation="Horizontal" Height="35" VerticalAlignment="Top">
-            <Button Content="Listar Ventas" Click="ListarVentasClick"></Button>
-            <Button Content="Registrar Venta" Click="RegistrarVentasClick"></Button>
-            
-            <Button Content="Menu Pricipal" Click="MenuPrincipalClick"></Button>
+            <Button Style="{StaticResource button}" Click="ListarVentasClick">
+                <StackPanel>
+                    <Image Source="/Imagenes/listar ventas.png" />
+                </StackPanel>
+            </Button>
+            <Button Style="{StaticResource button}"  Click="RegistrarVentasClick">
+                <StackPanel>
+                    <Image Source="/Imagenes/registrar ventas.png" />
+                </StackPanel>
+            </Button>
+
+            <Button Style="{StaticResource button}" Click="MenuPrincipalClick">
+                <StackPanel>
+                    <Image Source="/Imagenes/MenuPrincipal_RC.png" />
+                </StackPanel>
+            </Button>
         </StackPanel>
 
     </Grid>

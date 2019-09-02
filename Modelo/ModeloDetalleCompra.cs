@@ -23,7 +23,8 @@ namespace Modelo
                 Validacion = dc.Validacion,
                 Comentario=dc.Comentario,
                 Cantidad=dc.Cantidad,
-                precio_Unitario=dc.valorUnitario
+                precio_Unitario=dc.valorUnitario,
+                tipoCompra=dc.tipoCompra
 
 
 
@@ -55,7 +56,8 @@ namespace Modelo
                 Validacion = dc.Validacion,
                 Comentario = dc.Comentario,
                 Cantidad = dc.Cantidad,
-                precio_Unitario=dc.valorUnitario
+                precio_Unitario=dc.valorUnitario,
+                tipoCompra=dc.tipoCompra
 
 
 

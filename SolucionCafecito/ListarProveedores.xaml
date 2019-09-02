@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SolucionCafecito"
         mc:Ignorable="d"
-        Title="ListarProveedores" Height="450" Width="800">
+        Title="ListarProveedores" Height="510" Width="{x:Static SystemParameters.PrimaryScreenWidth}">
 
     <Window.Resources>
         <Style  x:Key="button" TargetType="{x:Type Button}">
@@ -18,10 +18,26 @@
                 </Style>
             </Style.Resources>
         </Style>
+
+        <Style  x:Key="datraGrid" TargetType="{x:Type DataGrid}">
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="BorderBrush" Value="Green"/>
+            <Setter Property="RowBackground" Value="#FFF1E2"/>
+            <Setter Property="AlternatingRowBackground" Value="#FDE5DF"/>
+            <Setter Property="Foreground" Value="#F15A29" />
+            <Setter Property="FontFamily" Value="Arial Rounded MT Bold" />
+
+            <Style.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="80"></Setter>
+                </Style>
+            </Style.Resources>
+        </Style>
+
     </Window.Resources>
 
     <Grid Background="#FFF1E2">
-        <DataGrid Name="ProveedoresGrid" HorizontalAlignment="Left" AutoGenerateColumns="False" Height="185" Margin="35,82,0,0" VerticalAlignment="Top" Width="673">
+        <DataGrid Style="{StaticResource datraGrid}" Name="ProveedoresGrid" HorizontalAlignment="Left" AutoGenerateColumns="False" Height="329" Margin="37,66,0,0" VerticalAlignment="Top" Width="1247">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding id_Proveedor}" Header="ID Proveedor"></DataGridTextColumn>
                 <DataGridTextColumn Binding="{Binding NombreProveedor}" Header="Nombre Proveedor"></DataGridTextColumn>
@@ -31,13 +47,17 @@
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Name="Selector" Click="SeleccionarProveedor" Content="Seleccionar Proveedor"></Button>
+                            <Button Name="Selector" Click="SeleccionarProveedor" >
+                                <StackPanel>
+                                    <Image Source="/Imagenes/seleccionar proveedor.png" />
+                                </StackPanel>
+                            </Button>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
 
-                </DataGridTemplateColumn>    
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
-            
+
         </DataGrid>
         <StackPanel Orientation="Horizontal" Height="35" VerticalAlignment="Top">
             <Button  Click="ListarProveedoresClick" Style="{StaticResource button}">

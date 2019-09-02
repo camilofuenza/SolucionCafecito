@@ -135,7 +135,7 @@ namespace SolucionCafecito
             dc.Nro_Factura = compra.Nro_Factura;
             string Nombre_Producto= (string)comboProducto.SelectedValue;
             dc.Nombre_Producto = Nombre_Producto.Trim();
-            dc.Cantidad = int.Parse(txtCantidadProducto.Text.ToString());
+            
             dc.Precio = int.Parse(txtTotalPorProducto.Text.ToString());
 
             if (rdbSi.IsChecked==true)
@@ -158,6 +158,8 @@ namespace SolucionCafecito
                 precioUnitarioUnidad = (totalporproducto / cantidadComprada);
                 txtValorUnitario.Text = precioUnitarioUnidad.ToString();
                 dc.valorUnitario = precioUnitarioUnidad;
+                dc.tipoCompra = "Unidad";
+                dc.Cantidad = int.Parse(txtCantidadProducto.Text.ToString());
             }
 
             if (rbdPorMayor.IsChecked == true)
@@ -169,6 +171,9 @@ namespace SolucionCafecito
                 precioUnitarioUnidad = (totalporproducto / (cantidadComprada*unidadescontenidas));
                 txtValorUnitario.Text = precioUnitarioUnidad.ToString();
                 dc.valorUnitario = precioUnitarioUnidad;
+                dc.tipoCompra = "Por Mayor";
+                dc.Cantidad = int.Parse(txtCantidadProducto.Text)*int.Parse(txtUnidadesPorMayor.Text);
+
             }
 
             txtTotalNeto.Text= (double.Parse(txtTotalPorProducto.Text) + oldvalueforTotal).ToString();
@@ -200,7 +205,16 @@ namespace SolucionCafecito
                     cantidadProducto.Nombre_Producto = productocontrolador.Nombre_Producto;
                     cantidadProducto.id_Categoria = Convert.ToInt32(productocontrolador.id_Categoria);
                     cantidadProducto.Precio = Convert.ToInt32(productocontrolador.Precio);
-                    cantidadProducto.Cantidad=cantidadProducto.Cantidad + Convert.ToInt32(cantidadComprada);
+                    if (rdbUnidad.IsChecked == true)
+                    {
+                        cantidadProducto.Cantidad=cantidadProducto.Cantidad + Convert.ToInt32(cantidadComprada);
+                    }
+                    if (rbdPorMayor.IsChecked == true)
+                    {
+                        cantidadProducto.Cantidad = cantidadProducto.Cantidad+(int.Parse(txtCantidadProducto.Text) * int.Parse(txtUnidadesPorMayor.Text));
+
+                    }
+
                     productos.ModificarProducto(cantidadProducto);
 
                     //Setea campos a blanco y añade valor a label

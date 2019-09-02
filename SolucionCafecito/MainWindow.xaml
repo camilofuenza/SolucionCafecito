@@ -5,29 +5,42 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SolucionCafecito"
         mc:Ignorable="d"
-        Title="Un Cafecito" Height="450" Width="800" Icon="../Imagenes/uncafectito.png">
+        Title="Un Cafecito" Height="510" Width="{x:Static SystemParameters.PrimaryScreenWidth}" Icon="../Imagenes/uncafectito.png">
+    <Window.Resources>
 
+        <Style  x:Key="button" TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="{x:Null}" />
+
+            <Setter Property="BorderThickness" Value="0" />
+            <Style.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="100"></Setter>
+                </Style>
+            </Style.Resources>
+        </Style>
+
+    </Window.Resources>
     <Grid Margin="0,0,-8,0" Background="#EAE4DF">
 
-      
+
 
         <StackPanel Margin="0,8,0,-8">
-            <Image Source="/Imagenes/Fondo_MP.png" Stretch="Uniform" Height="400" Margin="0,0,10,0"/>
+            <Image Source="/Imagenes/Fondo_MP.png" Stretch="Uniform" Height="400" Margin="0,30,10,0"/>
         </StackPanel>
-        <Button    HorizontalAlignment="Left" Height="150" Margin="90,143,0,0" VerticalAlignment="Top" Width="150" BorderThickness="0" Background="{x:Null}" Click="Ventas_Click">
+        <Button   Style="{StaticResource button}" HorizontalAlignment="Left" Height="150" Margin="200,143,0,0" VerticalAlignment="Top" Width="150" BorderThickness="0" Background="{x:Null}" Click="Ventas_Click">
             <StackPanel>
                 <Image Source="/Imagenes/ventas.png" />
             </StackPanel>
         </Button>
 
-        <Button  BorderThickness="0" Background="{x:Null}" HorizontalAlignment="Left" Height="150" Margin="324,139,0,0" VerticalAlignment="Top" Width="150" Click="Button_Click">
+        <Button Style="{StaticResource button}" BorderThickness="0" Background="{x:Null}" HorizontalAlignment="Left" Height="150" Margin="600,139,0,0" VerticalAlignment="Top" Width="150" Click="Button_Click">
             <StackPanel>
                 <Image Source="/Imagenes/Compras.png" />
 
             </StackPanel>
         </Button>
 
-        <Button BorderThickness="0" Background="{x:Null}" HorizontalAlignment="Left" Height="150" Margin="558,133,0,0" VerticalAlignment="Top" Width="150" Click="IrInventario">
+        <Button Style="{StaticResource button}" BorderThickness="0" Background="{x:Null}" HorizontalAlignment="Left" Height="150" Margin="1000,133,0,0" VerticalAlignment="Top" Width="150" Click="IrInventario">
             <StackPanel>
                 <Image Source="/Imagenes/Inventario.png" />
 
